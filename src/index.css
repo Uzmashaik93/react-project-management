@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+  text-align: center;
 }
 
 a {
@@ -15,6 +16,7 @@ select {
   min-width: 50px;
   margin: 5px;
   font-size: 18px;
+  background-color: white;
 }
 
 label {
@@ -31,13 +33,17 @@ textarea {
 }
 
 .Navbar {
-  background: #515f7d;
+  background: black;
   color: white;
   padding: 0px 20px;
   box-shadow: 0px 1px 2px gray;
   width: 100%;
   margin-bottom: 15px;
   padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .Navbar li {
@@ -65,7 +71,7 @@ textarea {
 .EditProjectPage,
 .CreateProjectPage,
 .AddTask {
-  background: #f6f3e5;
+  background: #cedffc;
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
   width: 400px;
