@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { API_URL } from "../config/api";
 import Loader from "../components/Loader";
 
 function ProjectDetailPage() {
   const [project, setProject] = useState(null);
   const { projectId } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -18,6 +20,17 @@ function ProjectDetailPage() {
         console.log("Error", e);
       });
   }, []);
+
+  const deleteProject = () => {
+    axios
+      .delete(`${API_URL}/projects/${projectId}`)
+      .then((response) => {
+        navigate("/projects");
+      })
+      .catch((e) => {
+        console.log("Error", e);
+      });
+  };
 
   if (project === null) {
     return <Loader />;
@@ -33,6 +46,7 @@ function ProjectDetailPage() {
       <Link to={`/projects/edit/${projectId}`}>
         <button>Edit</button>
       </Link>
+      <button onClick={deleteProject}>Delete</button>
     </div>
   );
 }
